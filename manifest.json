@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "Gitlab tools",
+  "description": "This extension help highlighting merge requests titled without WIP, as well as adding description into commit message automatically when requests merged.",
+  "version": "1.0",
+  "icons": { "16": "icon16.png",
+			 "48": "icon48.png",
+			 "120": "icon120.png"
+			},
+
+  "author": "kuangchanglang@163.com",
+  
+  "content_scripts": [ // 这里配置的脚本和样式将直接按顺序注入到影响的页面中
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["jquery-3.1.1.js", "highlight_mr.js", "include_commit_msg.js"]
+    }
+   ],
+   
+  "background": {
+    "scripts": ["jquery-3.1.1.js", "background.js"]
+  },
+
+  "permissions": [
+	"tabs", 
+    "http://*/*", 
+	"https://*/*", 
+	"webNavigation",
+	"webRequest",
+	"storage"
+  ],
+	
+  "browser_action": {
+    "default_icon": "icon48.png",
+    "default_popup": "popup.html"
+  }
+}

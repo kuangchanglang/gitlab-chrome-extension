@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+		width: 400px;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        background: #f5f5f5;
+        white-space: pre;
+        // text-overflow: ellipsis;
+        overflow: hidden;
+      }
+	  .center {
+		margin: auto;
+		width: 100%;
+		padding: 5px;
+	  }
+	  #example {
+		background: #C5EFFC;
+		margin-left: 10px;
+	  }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+	 <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  </head>
+  <body>
+    <div id="status" class="center">
+		<label><input type="checkbox" id="cbox_include" value="true" checked="true">Include description into merge commit</label><br>
+		<label><input type="checkbox" id="cbox_highlight" value="true" checked="true">Highlight merge requests</label><br>
+		<lable>Hightlight color: <input id="text_color" type="text" name="text_color" value="#C5EFFC" maxlength="8" size="8" ></lable><span id="example">Example</span><br>
+		<input id="submit" type="button" value="Save">
+	</div>
+	
+	 <script type="text/javascript" src="popup.js"></script>
+  </body>
+</html>
+
