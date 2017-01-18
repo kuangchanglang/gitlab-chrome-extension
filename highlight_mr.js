@@ -23,5 +23,8 @@ function find(){
     });
 }
 
-
-find();
+$(document).ready(function(){
+	if($(location).attr('href').endsWith("merge_requests")){
+		find();
+	}
+});
