@@ -1,4 +1,7 @@
 function find(){
+	if(!$(location).attr('pathname').endsWith("merge_requests")){
+		return;
+	}
 	var color = '#C5EFFC'
 	// Read it using the storage API
     chrome.storage.local.get(['highlight', 'color'], function(items) {
@@ -16,7 +19,7 @@ function find(){
 		requests.each(function(){
 			span = $(this).children('span:first')[0];
 			var a = $(span).children('a')[0];
-			if(!$(span).children('a')[0].text.startsWith("WIP:")){
+			if(!$(span).children('a')[0].text.match(/^wip:/i)){
 				$(span).css("background-color", color);
 			}
 		});
@@ -24,7 +27,5 @@ function find(){
 }
 
 $(document).ready(function(){
-	if($(location).attr('href').endsWith("merge_requests")){
-		find();
-	}
+	find();
 });

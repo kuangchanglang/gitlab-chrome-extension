@@ -7,8 +7,10 @@ chrome.storage.local.set({
     }
 );
 chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
-	console.log("history changed " + details.url);
-	if(details.url.endsWith("merge_requests")) {
+	var parser = document.createElement('a');
+	parser.href = details.url;
+	console.log("history changed " + parser.pathname);
+	if(parser.pathname.endsWith("merge_requests")) {
 		console.log("backgound highlight");
 		chrome.tabs.executeScript(null, { file: "jquery-3.1.1.js" }, function() {
 			if (chrome.runtime.lastError) {
@@ -20,7 +22,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
 				}
 			});
 		});
-	}else if(details.url.match(/merge_requests\/\d+/g)){
+	}else if(parser.pathname.match(/merge_requests\/\d+$/g)){
 		console.log("backgound include");
 		chrome.tabs.executeScript(null, { file: "jquery-3.1.1.js" }, function() {
 			if (chrome.runtime.lastError) {

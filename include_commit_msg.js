@@ -14,7 +14,6 @@ function include_commit_msg(){
 			if(items.include==true){
 				var a = $("a.js-with-description-link");
 				if(a != null && a.length>0){
-					console.log(a[0].click);
 					a[0].click();
 				}
 			}
@@ -22,10 +21,7 @@ function include_commit_msg(){
 	});
 	
 }
-/*
-window.addEventListener ("load", include_commit_msg, false);
 
-*/
 $(document).ready(function(){
 	include_commit_msg();
 });
