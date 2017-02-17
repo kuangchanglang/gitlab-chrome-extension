@@ -4,5 +4,5 @@
 # Installation:
 1. Download [source codes](https://github.com/kuangchanglang/gitlab-chrome-extension/archive/master.zip) , and unzip it.
 2. Visit [chrome://extensions](!chrome://extensions) on your chrome navigation.
-3. Enable developer mode and and click "Load Unpacked Extension".
+3. Enable developer mode and click "Load Unpacked Extension".
 4. Disable developer mode.
