@@ -1,5 +1,5 @@
 function include_commit_msg(){
-	if($(location).attr('href').match(/merge_requests\/\d+$/g) == null){
+	if($(location).attr('href').match(/merge_requests\/\d+(\/diffs)*$/g) == null){
 		return;
 	}
 	chrome.storage.local.get(['include'], function(items) {
